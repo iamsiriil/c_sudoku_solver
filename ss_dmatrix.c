@@ -19,6 +19,24 @@ unsigned char	**ss_create_matrix(int size)
 	return (matrix);
 }
 
+void	ss_populate_matrix(int argc, char **argv, unsigned char **matrix)
+{
+	LOG_MESSAGE("Function call: argc : %d.", argc);
+	(void)argc;
+	int i = 0;
+	while (i < 9)
+	{
+		int j = 0;
+		while (j < 9)
+		{
+			argv++;
+			matrix[i][j] = ss_atoi(*argv);
+			j++;
+		}
+		i++;
+	}
+}
+
 void	ss_print_matrix(unsigned char **matrix, int size)
 {
 	LOG_MESSAGE("Function call.");
@@ -41,11 +59,3 @@ void	ss_free_matrix(unsigned char **matrix, int size)
 	free(matrix);
 }
 
-//int	main(void)
-//{
-//	int		size = 9;
-//	unsigned char	**matrix = ss_create_matrix(size);
-//	ss_print_matrix(matrix, size);
-//	ss_free_matrix(matrix, size);
-//	return (0);
-//}
