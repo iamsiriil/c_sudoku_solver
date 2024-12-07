@@ -46,3 +46,4 @@ int	ss_checker(unsigned char **matrix, int row, int col, unsigned char nbr)
 		return (0);
 	return (1);
 }
+
