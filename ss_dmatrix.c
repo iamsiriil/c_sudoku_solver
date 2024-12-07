@@ -23,17 +23,13 @@ void	ss_populate_matrix(int argc, char **argv, unsigned char **matrix)
 {
 	LOG_MESSAGE("Function call: argc : %d.", argc);
 	(void)argc;
-	int i = 0;
-	while (i < 9)
+	for (int i = 0; i < 9; i++)
 	{
-		int j = 0;
-		while (j < 9)
+		for (int j = 0; j < 9; j++)
 		{
 			argv++;
 			matrix[i][j] = ss_atoi(*argv);
-			j++;
 		}
-		i++;
 	}
 }
 
