@@ -18,10 +18,21 @@ int	main(void)
 	}
 	ss_print_matrix(grid, 9);
 
+	printf("\n\nCHECK ROW\n\n");
+
 	for (int i = 0; i < 9; i++)
 		printf("exp : %d | got : %d\n", 1, ss_check_row(grid, i, 2));
 
 	for (int i = 0; i < 9; i++)
 		printf("exp : %d | got : %d\n", 0, ss_check_row(grid, i, 1));
+
+	printf("\n\nCHECK COL\n\n");
+
+	for (int i = 0; i < 9; i++)
+		printf("exp : %d | got : %d\n", 1, ss_check_col(grid, i, 2));
+
+	for (int i = 0; i < 9; i++)
+		printf("exp : %d | got : %d\n", 0, ss_check_col(grid, i, 1));
+		
 	return (0);
 }
