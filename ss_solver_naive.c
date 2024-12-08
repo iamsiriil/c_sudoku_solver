@@ -5,6 +5,7 @@ int	r = 0;
 int	ss_solver_naive(unsigned char **matrix, int row, int col, int size)
 {
 	LOG_MESSAGE("function call : recursion #%d", ++r);
+
 	if (row == size - 1 && col == size)
 		return (1);
 	if (col == size)
@@ -13,7 +14,7 @@ int	ss_solver_naive(unsigned char **matrix, int row, int col, int size)
 		col = 0;
 	}
 	if (matrix[row][col] > 0)
-		return ss_solver_naive(matrix, row, col + 1, size);
+		return (ss_solver_naive(matrix, row, col + 1, size));
 
 	for (unsigned char nbr = 1; nbr <= size; nbr++)
 	{
