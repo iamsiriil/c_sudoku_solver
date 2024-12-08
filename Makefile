@@ -8,7 +8,7 @@ SSLIB_DIR = ./sslib/
 SSLIB = $(SSLIB_DIR)sslib.a
 
 HDRS = sudoku_solver.h logger.h
-SOURCE = ss_parser.c ss_utils.c ss_main.c ss_dmatrix.c ss_checker.c
+SOURCE = ss_parser.c ss_main.c ss_dmatrix.c ss_checker.c ss_solver_naive.c
 OBJS = $(SOURCE:.c=.o)
 
 all: $(SSLIB) $(NAME)

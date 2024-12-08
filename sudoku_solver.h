@@ -1,7 +1,7 @@
 #ifndef SUDOKU_SOLVER_H
 # define SUDOKU_SOLVER_H
 
-//# define DEBUG
+# define DEBUG
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -24,4 +24,6 @@ int		ss_check_col(unsigned char **matrix, int col, unsigned char nbr);
 int		ss_check_sgrid(unsigned char **matrix, int row, int col, int nbr);
 int		ss_checker(unsigned char **matrix, int row, int col, unsigned char nbr);
 
+// Solver
+int		ss_solver_naive(unsigned char **matrix, int row, int col, int size);
 #endif 

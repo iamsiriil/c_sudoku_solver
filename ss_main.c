@@ -11,7 +11,8 @@ int	main(int argc, char **argv)
 	{
 		unsigned char	**matrix = ss_create_matrix(9);
 		ss_parse_input(argc, argv, matrix);
-		ss_print_matrix(matrix, 9);
+		if (ss_solver_naive(matrix, 0, 0, 9) == 1)
+			ss_print_matrix(matrix, 9);
 		ss_free_matrix(matrix, 9);
 	}
 
