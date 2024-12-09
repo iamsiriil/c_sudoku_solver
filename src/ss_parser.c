@@ -2,12 +2,12 @@
 
 int	ss_test_input(int argc, char **argv)
 {
-	for (int i = 1; i < (argc - 1); i++)
-	{
+	for (int i = 1; i < (argc - 1); i++) {
 		if (!ss_isdigit((int)argv[i][0]) && argv[i][1] != '\0')
 			return (0);
 		i++;
 	}
+
 	return (1);
 }
 
