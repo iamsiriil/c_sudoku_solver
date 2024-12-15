@@ -1,17 +1,17 @@
 #include "../inc/sudoku_solver.h"
 
-unsigned char	**ss_create_matrix(int size)
+ss_num	**ss_create_matrix(int size)
 {
 	LOG_MESSAGE("Function call.");
 
-	unsigned char	**matrix;
+	ss_num	**matrix;
 
-	matrix = (unsigned char **)malloc(sizeof(char **) * size);
+	matrix = (ss_num **)malloc(sizeof(char **) * size);
 	if (!matrix)
 		return (NULL);
 
 	for (int i = 0; i < size; i++) {
-		matrix[i] = (unsigned char *)malloc(sizeof(char *) * size);
+		matrix[i] = (ss_num *)malloc(sizeof(char *) * size);
 		if (!matrix[i])
 			return (NULL);
 		for (int j = 0; j < size; j++)
@@ -21,7 +21,7 @@ unsigned char	**ss_create_matrix(int size)
 	return (matrix);
 }
 
-void	ss_populate_matrix(char **argv, unsigned char **matrix)
+void	ss_populate_matrix(char **argv, ss_num **matrix)
 {
 	LOG_MESSAGE("Function call: argc : %d.", argc);
 
@@ -33,7 +33,7 @@ void	ss_populate_matrix(char **argv, unsigned char **matrix)
 	}
 }
 
-void	ss_print_matrix(unsigned char **matrix, int size)
+void	ss_print_matrix(ss_num **matrix, int size)
 {
 	LOG_MESSAGE("Function call.");
 
@@ -46,7 +46,7 @@ void	ss_print_matrix(unsigned char **matrix, int size)
 	}
 }
 
-void	ss_free_matrix(unsigned char **matrix, int size)
+void	ss_free_matrix(ss_num **matrix, int size)
 {
 	LOG_MESSAGE("Function call.");
 

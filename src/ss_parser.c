@@ -11,7 +11,7 @@ int	ss_test_input(int argc, char **argv)
 	return (1);
 }
 
-void	ss_parse_input(int argc, char **argv, unsigned char **matrix)
+void	ss_parse_input(int argc, char **argv, ss_num **matrix)
 {
 	if (!ss_test_input(argc, argv))
 		exit(EXIT_FAILURE);

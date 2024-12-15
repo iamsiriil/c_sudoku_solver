@@ -9,7 +9,7 @@ int	main(int argc, char **argv)
 	if ((argc - 1) != 81)
 		exit(EXIT_FAILURE);
 
-	unsigned char	**matrix = ss_create_matrix(9);
+	ss_num	**matrix = ss_create_matrix(9);
 
 	ss_parse_input(argc, argv, matrix);
 

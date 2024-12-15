@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_check_row(unsigned char **matrix, int row, unsigned char nbr)
+int	ss_check_row(ss_num **matrix, int row, ss_num nbr)
 {
 	for (int i = 0; i < 9; i++) {
 		if (matrix[row][i] == nbr)
@@ -10,7 +10,7 @@ int	ss_check_row(unsigned char **matrix, int row, unsigned char nbr)
 	return (1);
 }
 
-int	ss_check_col(unsigned char **matrix, int col, unsigned char nbr)
+int	ss_check_col(ss_num **matrix, int col, ss_num nbr)
 {
 	for (int i = 0; i < 9; i++) {
 		if (matrix[i][col] == nbr)
@@ -20,7 +20,7 @@ int	ss_check_col(unsigned char **matrix, int col, unsigned char nbr)
 	return (1);
 }
 
-int	ss_check_sgrid(unsigned char **matrix, int row, int col, int nbr)
+int	ss_check_sgrid(ss_num **matrix, int row, int col, int nbr)
 {
 	int	sg_row = row - (row % 3);
 	int	sg_col = col - (col % 3);
@@ -35,7 +35,7 @@ int	ss_check_sgrid(unsigned char **matrix, int row, int col, int nbr)
 	return (1);
 }
 
-int	ss_checker(unsigned char **matrix, int row, int col, unsigned char nbr)
+int	ss_checker(ss_num **matrix, int row, int col, ss_num nbr)
 {
 	if (ss_check_row(matrix, row, nbr) == 0)
 		return (0);
