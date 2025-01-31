@@ -6,6 +6,6 @@ Program for solving sudoku puzzles.
 
 1. Incorpurate cnslib in alternative to sslib.
 2. Option parser:
-    * path to file (-f)
-    * help/usage (-h)
+   * path to file (-f)
+   * help/usage (-h)
 3. File parser
