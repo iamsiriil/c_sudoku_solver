@@ -9,4 +9,4 @@ Program for solving sudoku puzzles.
    * path to file (-f)
    * help/usage (-h)
 3. File parser
-4. Review tests
+4. Review tests, reorganize and expand tests.
