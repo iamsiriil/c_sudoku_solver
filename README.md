@@ -2,7 +2,7 @@
 
 Program for solving sudoku puzzles.
 
-### Next step:
+### Next steps:
 
 1. Incorpurate cnslib in alternative to sslib.
 2. Option parser:
