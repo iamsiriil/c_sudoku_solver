@@ -2,27 +2,27 @@
 
 int	r = 0;
 
-int	ss_solver_naive(ss_num **matrix, int row, int col, int size)
+bool	ss_solver_naive(t_grid *gr, int r, int c)
 {
 	LOG_MESSAGE("function call : recursion #%d", ++r);
 
-	if (row == size - 1 && col == size)
-		return (1);
-	if (col == size) {
-		row++;
-		col = 0;
+	if (r == gr->x - 1 && c == gr->x)
+		return true;
+	if (c == gr->x) {
+		r++;
+		c = 0;
 	}
-	if (matrix[row][col] > 0)
-		return (ss_solver_naive(matrix, row, col + 1, size));
+	if (gr->g[r][c] > 0)
+		return (ss_solver_naive(gr, r, c + 1));
 
-	for (ss_num nbr = 1; nbr <= size; nbr++) {
-		if (ss_checker(matrix, row, col, nbr) == 1) {
-			matrix[row][col] = nbr;
-			if (ss_solver_naive(matrix, row, col + 1, size) == 1)
-				return (1);
+	for (ss_num n = 1; n <= gr->x; ++n) {
+		if (ss_test_candidate(gr, r, c, n) == 1) {
+			gr->g[r][c] = n;
+			if (ss_solver_naive(gr, r, c + 1) == 1)
+				return true;
 		}	
-		matrix[row][col] = 0;
+		gr->g[r][c] = 0;
 	}
 
-	return (0);
+	return false;
 }

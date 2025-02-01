@@ -1,49 +1,45 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_check_row(ss_num **matrix, int row, ss_num nbr)
-{
-	for (int i = 0; i < 9; i++) {
-		if (matrix[row][i] == nbr)
-			return (0);
+bool	ss_test_row(t_grid *gr, int r, ss_num n) {
+
+	for (int j = 0; j < gr->x; ++j) {
+		if (gr->g[r][j] == n) return false;
 	}
 
-	return (1);
+	return true;
 }
 
-int	ss_check_col(ss_num **matrix, int col, ss_num nbr)
-{
-	for (int i = 0; i < 9; i++) {
-		if (matrix[i][col] == nbr)
-			return (0);
+bool	ss_test_col(t_grid *gr, int c, ss_num n) {
+
+	for (int i = 0; i < gr->y; ++i) {
+		if (gr->g[i][c] == n) return false;
 	}
 
-	return (1);
+	return true;
 }
 
-int	ss_check_sgrid(ss_num **matrix, int row, int col, int nbr)
-{
-	int	sg_row = row - (row % 3);
-	int	sg_col = col - (col % 3);
+bool	ss_test_sgrid(t_grid *gr, int r, int c, ss_num n) {
 
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (matrix[i + sg_row][j + sg_col] == nbr)
-				return (0);
+	int	sg_r = r - (r % 3);
+	int	sg_c = c - (c % 3);
+
+	for (int i = 0; i < SS_SQRT(gr->x); ++i) {
+		for (int j = 0; j < SS_SQRT(gr->y); ++j) {
+			if (gr->g[i + sg_r][j + sg_c] == n)
+				return false;
 		}
 	}
 
-	return (1);
+	return true;
 }
 
-int	ss_checker(ss_num **matrix, int row, int col, ss_num nbr)
-{
-	if (ss_check_row(matrix, row, nbr) == 0)
-		return (0);
-	if (ss_check_col(matrix, col, nbr) == 0)
-		return (0);
-	if (ss_check_sgrid(matrix, row, col, nbr) == 0)
-		return (0);
+bool	ss_test_candidate(t_grid *gr, int r, int c, ss_num n) {
 
-	return (1);
+	if (ss_test_row(gr, r, n) &&
+			ss_test_col(gr, c, n) &&
+			ss_test_sgrid(gr, r, c, n))
+		return true;
+
+	return false;
 }
 

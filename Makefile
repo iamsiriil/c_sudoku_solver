@@ -33,7 +33,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJS) $(SSLIB)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(HDRS) -L$(SSLIB_DIR) -l:sslib.a
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(HDRS) -lm -L$(SSLIB_DIR) -l:sslib.a
 
 clean:
 	@$(RM) $(OBJS)

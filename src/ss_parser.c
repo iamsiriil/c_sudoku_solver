@@ -1,20 +1,21 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_test_input(int argc, char **argv)
-{
-	for (int i = 1; i < (argc - 1); i++) {
-		if (!ss_isdigit((int)argv[i][0]) && argv[i][1] != '\0')
-			return (0);
-		i++;
+bool	ss_test_input(int ac, char **av, t_grid *gr) {
+
+	int n = 0;
+	for (int i = 1; i < (ac - 1); ++i) {
+		n = atoi(av[i]);
+		if (n < 0 || n > gr->x) return false;
 	}
 
-	return (1);
+	return true;
 }
 
-void	ss_parse_input(int argc, char **argv, ss_num **matrix)
-{
-	if (!ss_test_input(argc, argv))
+void	ss_parse_input(int ac, char **av, t_grid *gr) {
+
+	if (!ss_test_input(ac, av, gr))
 		exit(EXIT_FAILURE);
 	else
-		ss_populate_matrix(argv, matrix);
+		ss_populate_grid(gr, av);
 }
+
