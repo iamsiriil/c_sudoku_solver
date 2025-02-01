@@ -4,13 +4,18 @@ ss_num	**ss_create_grid(int x, int y) {
 
 	LOG_MESSAGE("Function call.");
 
-	ss_num **gr = malloc(sizeof(char **) * x);
-	if (gr) return NULL;
+	ss_num **gr = malloc(sizeof(ss_num *) * x);
+	if (!gr) return NULL;
 
 	for (int i = 0; i < x; ++i) {
 
-		gr[i] = malloc(sizeof(char *) * y);
-		if (gr[i]) return NULL;
+		gr[i] = malloc(sizeof(ss_num) * y);
+		if (!gr[i]) {
+			for (int j = 0; j < i; ++j)
+				free(gr[j]);
+			free(gr);
+			return NULL;
+		}
 
 		for (int j = 0; j < y; ++j)
 			gr[i][j] = 0;
@@ -21,7 +26,7 @@ ss_num	**ss_create_grid(int x, int y) {
 
 void	ss_populate_grid(t_grid *gr, char **av) {
 
-	LOG_MESSAGE("Function call: argc : %d.", argc);
+	LOG_MESSAGE("Function call.");
 
 	++av;
 	for (int i = 0; i < gr->x; ++i) {
@@ -49,6 +54,7 @@ void	ss_free_grid(t_grid *gr) {
 
 	for (int i = 0; i < gr->x; ++i)
 		free(gr->g[i]);
+	free(gr->g);
 	free(gr);
 }
 

@@ -1,7 +1,7 @@
 #ifndef SUDOKU_SOLVER_H
 # define SUDOKU_SOLVER_H
 
-//# define DEBUG
+# define DEBUG
 
 # include <math.h>
 # include <stdio.h>
