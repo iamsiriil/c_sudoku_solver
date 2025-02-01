@@ -8,7 +8,7 @@ int	main(int argc, char **argv) {
 	int sz = 0;
 
 	switch (argc) {
-		case 3:
+		case 2:
 			printf("parse_file\n");
 			break;
 		case 82:
@@ -29,14 +29,15 @@ int	main(int argc, char **argv) {
 		perror("Failed to allocate memory for grid structure.");
 		exit(EXIT_FAILURE);
 	}
-	gr->x = sz;
-	gr->y = sz;	
+	gr->x = 9;
+	gr->y = 9;	
 	gr->g = ss_create_grid(gr->x, gr->y);
 	if (gr->g == NULL) {
 		perror("Failed to create grid.");
 		free(gr);
 		exit(EXIT_FAILURE);
 	}
+	ss_parse_file(gr, argv[1]);
 
 	ss_print_grid(gr);
 	ss_free_grid(gr);

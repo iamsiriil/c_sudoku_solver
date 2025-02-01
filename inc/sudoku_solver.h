@@ -5,6 +5,9 @@
 
 # include <math.h>
 # include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <string.h>
 # include <stdlib.h>
 # include <stdbool.h>
 
@@ -14,8 +17,7 @@
 # define SS_4X4 4
 # define SS_9X9 9
 # define SS_16X16 16
-
-# define SS_ARRAY_SIZE 256
+# define SS_BUFFSZ 1024
 
 # define SS_SQRT(n) (ss_num)sqrt(n)
 
@@ -35,6 +37,7 @@ void		ss_free_grid(t_grid *gr);
 // Parser functions
 bool		ss_test_input(int ac, char **av, t_grid *gr);
 void		ss_parse_input(int ac, char **av, t_grid *gr);
+void		ss_parse_file(t_grid *gr, char *f);
 
 // Tester functions 
 bool		ss_test_row(t_grid *gr, int r, ss_num n);
