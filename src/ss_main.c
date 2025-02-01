@@ -38,8 +38,9 @@ int	main(int argc, char **argv) {
 		exit(EXIT_FAILURE);
 	}
 	ss_parse_file(gr, argv[1]);
+	if (ss_solver_naive(gr, 0, 0) == true)
+		ss_print_grid(gr);
 
-	ss_print_grid(gr);
 	ss_free_grid(gr);
 	
 	return EXIT_SUCCESS;

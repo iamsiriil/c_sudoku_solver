@@ -29,7 +29,7 @@ void	ss_parse_file(t_grid *gr, char *f) {
 	for (int i = 0; i < gr->x; ++i) {
 		for (int j = 0 ; j < gr->y; ++j) {
 			gr->g[i][j] = n;
-			if (i != 8 && j != 8)
+			if (!(i == 8 && j == 8))
 				n = (ss_num)atoi(strtok(0, " \n"));
 		}
 	}	
