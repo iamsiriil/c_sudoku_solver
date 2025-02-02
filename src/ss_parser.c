@@ -29,7 +29,6 @@ void	ss_parse_file(t_grid *gr, char *f) {
 	}
 
 	ss_num n = atoi(strtok(buffer, " \n"));
-	printf("size of n : %zu\n", sizeof(n));
 
 	for (int i = 0; i < gr->x; ++i) {
 		for (int j = 0 ; j < gr->y; ++j) {
