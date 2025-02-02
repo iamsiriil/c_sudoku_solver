@@ -29,8 +29,8 @@ int	main(int argc, char **argv) {
 		perror("Failed to allocate memory for grid structure.");
 		exit(EXIT_FAILURE);
 	}
-	gr->x = 9;
-	gr->y = 9;	
+	//gr->x = 0;
+	//gr->y = 0;	
 	gr->g = ss_create_grid(gr->x, gr->y);
 	if (gr->g == NULL) {
 		perror("Failed to create grid.");

@@ -17,7 +17,9 @@
 # define SS_4X4 4
 # define SS_9X9 9
 # define SS_16X16 16
+
 # define SS_BUFFSZ 1024
+extern char buffer[SS_BUFFSZ];
 
 # define SS_SQRT(n) (ss_num)sqrt(n)
 
@@ -44,6 +46,10 @@ bool		ss_test_row(t_grid *gr, int r, ss_num n);
 bool		ss_test_col(t_grid *gr, int c, ss_num n);
 bool		ss_test_sgrid(t_grid *gr, int r, int c, ss_num n);
 bool		ss_test_candidate(t_grid *gr, int r, int c, ss_num n);
+
+// Util functions
+void		ss_file_to_buff(char *f);
+int		ss_get_grid_size(char *b);
 
 // Solver
 bool		ss_solver_naive(t_grid *gr, int r, int c);
