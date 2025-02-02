@@ -29,8 +29,8 @@ void	ss_populate_grid(t_grid *gr, char **av) {
 	LOG_MESSAGE("Function call.");
 
 	++av;
-	for (int i = 0; i < gr->x; ++i) {
-		for (int j = 0; j < gr->y; ++j) {
+	for (int i = 0; i < gr->gx; ++i) {
+		for (int j = 0; j < gr->gy; ++j) {
 			gr->g[i][j] = ss_atoi(*av++);
 		}
 	}
@@ -40,8 +40,8 @@ void	ss_print_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 
-	for (int i = 0; i < gr->x; ++i) {
-		for (int j = 0; j < gr->y; ++j) {
+	for (int i = 0; i < gr->gx; ++i) {
+		for (int j = 0; j < gr->gy; ++j) {
 			printf("%d ", gr->g[i][j]);
 		}
 		printf("\n");
@@ -52,7 +52,7 @@ void	ss_free_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 
-	for (int i = 0; i < gr->x; ++i)
+	for (int i = 0; i < gr->gx; ++i)
 		free(gr->g[i]);
 	free(gr->g);
 	free(gr);

@@ -14,21 +14,30 @@
 # include "../sslib/inc/sslib.h"
 # include "logger.h"
 
-# define SS_4X4 4
-# define SS_9X9 9
-# define SS_16X16 16
-
 # define SS_BUFFSZ 1024
 extern char buffer[SS_BUFFSZ];
 
-# define SS_SQRT(n) (ss_num)sqrt(n)
-
 typedef unsigned char ss_num;
 
+typedef enum {
+	G4 = 4;
+	G9 = 9;
+	G16 = 16;
+} e_gsize;
+
+typedef enum {
+	S2 = 2;
+	S3 = 3;
+	S4 = 4;
+} e_sgsize;
+
 typedef struct s_grid {
-	ss_num x, y;
+	e_gsize gx, gy;
+	e_sdsize sx, sy;
 	ss_num **g;
 } t_grid;
+
+
 
 // Dynamic grid
 ss_num		**ss_create_grid(int x, int y);
@@ -42,10 +51,10 @@ void		ss_parse_input(int ac, char **av, t_grid *gr);
 void		ss_parse_file(t_grid *gr, char *f);
 
 // Tester functions 
-bool		ss_test_row(t_grid *gr, int r, ss_num n);
-bool		ss_test_col(t_grid *gr, int c, ss_num n);
-bool		ss_test_sgrid(t_grid *gr, int r, int c, ss_num n);
-bool		ss_test_candidate(t_grid *gr, int r, int c, ss_num n);
+bool		ss_check_row(t_grid *gr, int r, ss_num n);
+bool		ss_check_col(t_grid *gr, int c, ss_num n);
+bool		ss_check_sgrid(t_grid *gr, int r, int c, ss_num n);
+bool		ss_check_candidate(t_grid *gr, int r, int c, ss_num n);
 
 // Util functions
 void		ss_file_to_buff(char *f);

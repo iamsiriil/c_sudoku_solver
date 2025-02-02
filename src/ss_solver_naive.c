@@ -2,10 +2,10 @@
 
 bool	ss_solver_naive(t_grid *gr, int r, int c) {
 
-	if (r == gr->x - 1 && c == gr->y)
+	if (r == gr->gx - 1 && c == gr->gy)
 		return true;
 
-	if (c == gr->y) {
+	if (c == gr->gy) {
 		r++;
 		c = 0;
 	}
@@ -13,7 +13,7 @@ bool	ss_solver_naive(t_grid *gr, int r, int c) {
 	if (gr->g[r][c] > 0)
 		return (ss_solver_naive(gr, r, c + 1));
 
-	for (ss_num n = 1; n <= gr->x; ++n) {
+	for (ss_num n = 1; n <= gr->gx; ++n) {
 
 		if (ss_test_candidate(gr, r, c, n) == true) {
 			gr->g[r][c] = n;

@@ -7,7 +7,7 @@ bool	ss_test_input(int ac, char **av, t_grid *gr) {
 	int n = 0;
 	for (int i = 1; i < (ac - 1); ++i) {
 		n = atoi(av[i]);
-		if (n < 0 || n > gr->x) return false;
+		if (n < 0 || n > gr->gx) return false;
 	}
 
 	return true;
@@ -19,9 +19,9 @@ void	ss_parse_file(t_grid *gr, char *f) {
 
 	ss_file_to_buff(f);
 
-	gr->x = gr->y = ss_get_grid_size(buffer);
+	gr->gx = gr->gy = ss_get_grid_size(buffer);
 
-	gr->g = ss_create_grid(gr->x, gr->y);
+	gr->g = ss_create_grid(gr->gx, gr->gy);
 	if (gr->g == NULL) {
 		perror("Failed to create grid.");
 		free(gr);
@@ -30,8 +30,8 @@ void	ss_parse_file(t_grid *gr, char *f) {
 
 	ss_num n = atoi(strtok(buffer, " \n"));
 
-	for (int i = 0; i < gr->x; ++i) {
-		for (int j = 0 ; j < gr->y; ++j) {
+	for (int i = 0; i < gr->gx; ++i) {
+		for (int j = 0 ; j < gr->gy; ++j) {
 			gr->g[i][j] = n;
 			if (!(i == 8 && j == 8))
 				n = atoi(strtok(0, " \n"));
@@ -47,5 +47,29 @@ void	ss_parse_input(int ac, char **av, t_grid *gr) {
 		exit(EXIT_FAILURE);
 	else
 		ss_populate_grid(gr, av);
+}
+
+t_grid	*ss_parse_arguments(int argc, char **argv) {
+
+	t_grid *gr;
+
+	switch (argc - 1) {
+		case 1:
+			//parse file
+			break;
+		case 16:
+			// parse input 4x4
+			break;
+		case 81:
+			//parse input 9x9
+			break;
+		case 256:
+			// parse input 16x16
+			break;
+		default:
+			// error
+	}
+
+	return gr;
 }
 
