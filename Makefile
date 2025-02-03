@@ -6,9 +6,6 @@ CFLAGS 		= -Wall -Wextra -Werror
 RM 		= rm -f
 RMDIR 		= rm -rf
 
-SSLIB_DIR 	= ./sslib/
-SSLIB 		= $(SSLIB_DIR)sslib.a
-
 HDR_DIR		= ./inc/
 HDRS 		= $(wildcard $(HDR_DIR)*.h)
 
@@ -21,10 +18,7 @@ OBJS		= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SOURCE))
 TST_DIR		= ./tests/
 TST_OBJS	= $(filter-out $(OBJ_DIR)ss_main.o, $(OBJS))
 
-all: $(SSLIB) $(NAME)
-
-$(SSLIB):
-	@$(MAKE) -C $(SSLIB_DIR)
+all: $(NAME)
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -32,22 +26,20 @@ $(OBJ_DIR):
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
 	@$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJS) $(SSLIB)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(HDRS) -lm -L$(SSLIB_DIR) -l:sslib.a
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(HDRS) -lm 
 
 clean:
 	@$(RM) $(OBJS)
 	@$(RMDIR) $(OBJ_DIR)
-	@$(MAKE) -C $(SSLIB_DIR) clean
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) -C $(SSLIB_DIR) fclean
 
 re: fclean all
 
 test_checker:
-	@$(CC) $(TST_DIR)test_checker.c $(TST_OBJS) -L$(SSLIB_DIR) -l:sslib.a
+	@$(CC) $(TST_DIR)test_checker.c $(TST_OBJS)
 	./a.out
 
 .PHONY: all clean fclean re

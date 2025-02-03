@@ -12,7 +12,6 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# include "../sslib/inc/sslib.h"
 # include "logger.h"
 
 # define SS_NUM_OF_SIZES 3			// Number of valid grid sizes
