@@ -39,6 +39,7 @@ void		ss_print_grid(t_grid *gr);
 void		ss_free_grid(t_grid *gr);
 
 // Parser functions
+t_grid		*ss_parse_arguments(int ac, char **av);
 
 // Checker functions 
 bool		ss_check_row(t_grid *gr, int r, ss_num n);
@@ -52,9 +53,10 @@ bool		ss_test_range(int n, int gz);
 t_grid		*ss_test_buffer(char *b);
 
 // Util functions
+int		ss_get_n_values(char *b);
 char		*ss_clean_buffer(char *b);
 size_t		ss_get_size(int ac, char ** av);
-char		*ss_av_to_buffer(int ac, char **av);
+char		*ss_argv_to_buffer(int ac, char **av);
 char		*ss_file_to_buffer(char *p);
 
 // Solver

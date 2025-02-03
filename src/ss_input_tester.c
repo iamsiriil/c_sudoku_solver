@@ -39,7 +39,7 @@ t_grid	*ss_test_buffer(char *b) {
 				free(b);
 				exit(1);
 			}
-		} while ((s = strtok(NULL, " ")));
+		} while ((s = strtok(NULL, " ")) != NULL);
 	} else {
 		perror("Invalid number of values");
 		free(b);
