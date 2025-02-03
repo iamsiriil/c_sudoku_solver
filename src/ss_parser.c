@@ -66,8 +66,6 @@ t_grid	*ss_parse_arguments(int ac, char **av) {
 	else
 		b = ss_argv_to_buffer(ac, av);
 	
-	//t_grid *gr = 
 	return ss_test_buffer(b);
-	//return gr;
 }
 
