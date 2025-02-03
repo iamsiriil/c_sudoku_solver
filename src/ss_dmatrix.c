@@ -5,12 +5,12 @@ ss_num	**ss_create_grid(int x, int y, ss_num *a) {
 	LOG_MESSAGE("Function call.");
 
 	ss_num **gr = malloc(sizeof(ss_num *) * x);
-	if (!gr) return NULL;
+	if (!gr) return NULL;				// error handling
 
 	for (int i = 0, k = 0; i < x; ++i) {
 
 		gr[i] = malloc(sizeof(ss_num) * y);
-		if (!gr[i]) {
+		if (!gr[i]) {				// error handling
 			for (int j = 0; j < i; ++j)
 				free(gr[j]);
 			free(gr);
@@ -20,8 +20,8 @@ ss_num	**ss_create_grid(int x, int y, ss_num *a) {
 		for (int j = 0; j < y; ++j)
 			gr[i][j] = a[k++];
 	}
-	free(a);
 
+	free(a);
 	return gr;
 }
 

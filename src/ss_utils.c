@@ -3,6 +3,7 @@
 int	ss_get_n_values(char *b) {
 
 	int ct = 0;
+
 	while (*b) {
 		if (isdigit(*b)) {
 			ct++;
@@ -11,6 +12,7 @@ int	ss_get_n_values(char *b) {
 		else
 			b++;
 	}
+
 	return ct;
 }
 
@@ -22,6 +24,7 @@ char	*ss_clean_buffer(char *b) {
 		if (!isdigit(*b) && *b != ' ')
 			*b = ' ';
 	}
+
 	return pt;
 }
 
@@ -35,6 +38,7 @@ size_t	ss_get_size(int ac, char ** av) {
 		if (i != ac - 1)
 			sz++;
 	}
+
 	return sz;
 }
 

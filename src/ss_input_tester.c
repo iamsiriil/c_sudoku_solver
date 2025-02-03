@@ -17,11 +17,11 @@ bool	ss_test_range(int n, int sz) {
 
 t_grid	*ss_test_buffer(char *b) {
 
-	int n = ss_get_n_values(b), gs = 0;
+	int v = ss_get_n_values(b), gs = 0;
 	ss_num *ar = NULL;
 
-	if ((gs = ss_test_size(n)) != 0) {
-		ar = malloc(sizeof(ss_num) * n);
+	if ((gs = ss_test_size(v)) != 0) {
+		ar = malloc(sizeof(ss_num) * v);
 		if (! ar) {
 			perror("Program failed to allocate memory for array");
 			free(b);
@@ -31,8 +31,10 @@ t_grid	*ss_test_buffer(char *b) {
 		int i = 0, n = 0;
 		do {
 			n = atoi(s);
-			if (ss_test_range(n, gs))
+			if (ss_test_range(n, gs)) {
 				ar[i++] = n;
+				if (i >= v) break;
+			}
 			else {
 				perror("value out of range");
 				free(ar);

@@ -17,7 +17,6 @@ bool	ss_solver_naive(t_grid *gr, int r, int c) {
 
 		if (ss_check_candidate(gr, r, c, n) == true) {
 			gr->g[r][c] = n;
-
 			if (ss_solver_naive(gr, r, c + 1) == true)
 				return true;
 		}	
