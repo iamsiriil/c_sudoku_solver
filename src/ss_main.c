@@ -9,15 +9,10 @@ int	main(int argc, char **argv) {
 
 	switch (argc) {
 		case 2:
-			printf("parse_file\n");
 			break;
 		case 82:
-			printf("parse_input | size : %dx%d\n", SS_9X9, SS_9X9);
-			sz = SS_9X9;
 			break;
 		case 257:
-			printf("parse_input\n");
-			sz = SS_16X16;
 			break;
 		default:
 			printf("error: argc : %d\n", argc);

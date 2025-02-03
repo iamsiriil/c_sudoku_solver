@@ -44,7 +44,7 @@ bool	ss_check_candidate(t_grid *gr, int r, int c, ss_num n) {
 	LOG_MESSAGE("Function call.");
 
 	if (!ss_check_row(gr, r, n))
-	       return false;
+		return false;
 	if (!ss_check_col(gr, c, n))
 		return false;
 	if (!ss_check_sgrid(gr, r, c, n))
