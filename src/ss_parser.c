@@ -1,18 +1,5 @@
 #include "../inc/sudoku_solver.h"
 
-bool	ss_test_input(int ac, char **av, t_grid *gr) {
-
-	LOG_MESSAGE("Function call.");
-
-	int n = 0;
-	for (int i = 1; i < (ac - 1); ++i) {
-		n = atoi(av[i]);
-		if (n < 0 || n > gr->gx) return false;
-	}
-
-	return true;
-}
-
 t_grid	*ss_parse_arguments(int argc, char **argv) {
 
 	t_grid *gr;

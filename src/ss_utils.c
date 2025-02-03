@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_get_n_vals(char *b) {
+int	ss_get_n_values(char *b) {
 
 	int ct = 0;
 	while (*b) {
@@ -42,7 +42,7 @@ char	*ss_argv_to_buffer(int ac, char **av) {
 	size_t sz = ss_get_size(ac, av);
 	char *buff = malloc(sizeof(char) * sz + 1);
 	if (!buff) {
-		perror("Failed to allocate memory for buffer.");
+		perror("Failed to allocate memory for buffer");
 		exit(EXIT_FAILURE);
 	}
 

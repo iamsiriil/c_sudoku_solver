@@ -1,26 +1,29 @@
 #include "src/ss_utils.c"
+#include "src/ss_input_tester.c"
+#include "src/ss_dmatrix.c"
 #include "inc/sudoku_solver.h"
 
-int	ss_get_n_vals(char *b) {
+//ss_num	*ss_initialize_grid(ss_num *a, int gs) {
+//
+//	ss_grid *gr = malloc(sizeof(ss_grid));
+//	if (!gr) {
+//		perror("Failed to allocate memory for ss_grid");
+//		free(a);
+//		exit(1);	
+//	}
+//
+//	gr->gx = gr->gy = (ss_num)gs;
+//	gr->sx = gr->sy = (ss_num)SS_SQUR(gs);
+//	gr->g = ss_create_grid(gr->gx, gr->gy, a)
+//
+//	return gr;
+//}
 
-	int ct = 0;
-	while (*b) {
-		if (isdigit(*b)) {
-			ct++;
-			for (; isdigit(*b); b++) ;
-		} else b++;
-	}
-	return ct;
-}
 int main(int ac, char **av) {
 
-	//(void)ac, (void)av;
-	//char path[] = "./tests/test_files/puzzles/easy_9x9/tp_es_000.txt";
-	//char *buff1 = ss_file_to_buffer(path);
 	char *buff2 = ss_argv_to_buffer(ac, av);
 
-	printf("nvals : %d\n", ss_get_n_vals(buff2));
-	//printf("file :\n%s\n", buff1);
-	printf("argv :\n%s\n", buff2);
-	free(buff2);
+	t_grid *gr = ss_test_buffer(buff2);
+	ss_print_grid(gr);
+	ss_free_grid(gr);
 }
