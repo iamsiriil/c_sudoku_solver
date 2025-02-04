@@ -5,7 +5,8 @@ ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 	LOG_MESSAGE("Function call.");
 
 	ss_num **gr = malloc(sizeof(ss_num *) * x);
-	if (!gr) return NULL;				// error handling
+	if (!gr)
+		cns_error_handler(NULL, NULL, "Failed to allocate memory");
 
 	for (int i = 0, k = 0; i < x; ++i) {
 
@@ -27,12 +28,11 @@ ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 
 t_grid	*cns_initialize_grid(ss_num *a, int gs) {
 
+	LOG_MESSAGE("Function call.");
+
 	t_grid *gr = malloc(sizeof(t_grid));
-	if (!gr) {
-		perror("Failed to allocate memory for cns_grid");
-		free(a);
-		exit(1);	
-	}
+	if (!gr) 
+		cns_error_handler(NULL, NULL, "Failed to allocate memory");
 
 	gr->gx = gr->gy = (ss_num)gs;
 	gr->sx = gr->sy = (ss_num)CNS_SQRT(gs);

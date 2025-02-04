@@ -2,6 +2,8 @@
 
 int	cns_test_size(int n) {
 
+	LOG_MESSAGE("Function call.");
+
 	int i = 0;
 	for (; i < NUM_OF_SIZES; ++i) {
 		if (((int)CNS_SQRT(n) == GRID_SIZES[i]) && (n % GRID_SIZES[i] == 0))
@@ -12,15 +14,18 @@ int	cns_test_size(int n) {
 
 bool	cns_test_range(int n, int sz) {
 
+	LOG_MESSAGE("Function call.");
+
 	return (n >= 0 && n <= sz) ? true : false;
 }
 
 t_grid	*cns_test_buffer(char *b) {
 
+	LOG_MESSAGE("Function call.");
+
 	int v = cns_get_n_values(b), gs = 0;
 	ss_num *ar = NULL;
 
-	printf("n of values : %d\n", v);
 	if ((gs = cns_test_size(v)) != 0) {
 		ar = malloc(sizeof(ss_num) * v);
 		if (! ar)

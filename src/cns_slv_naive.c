@@ -2,6 +2,8 @@
 
 bool	cns_solver_naive(t_grid *gr, int r, int c) {
 
+	LOG_MESSAGE("Function call.");
+
 	if (r == gr->gx - 1 && c == gr->gy)
 		return true;
 

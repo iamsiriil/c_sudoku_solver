@@ -2,6 +2,8 @@
 
 char	*cns_argv_to_buffer(int ac, char **av) {
 
+	LOG_MESSAGE("Function call.");
+
 	size_t sz = cns_get_size(ac, av);
 	char *buff = malloc(sizeof(char) * sz + 1);
 	if (!buff)
@@ -23,6 +25,8 @@ char	*cns_argv_to_buffer(int ac, char **av) {
 }
 
 char	*cns_file_to_buffer(char *p) {
+
+	LOG_MESSAGE("Function call.");
 
 	FILE *f = fopen(p, "r");
 	if (f == NULL)
@@ -47,6 +51,8 @@ char	*cns_file_to_buffer(char *p) {
 }
 
 t_grid	*cns_parse_arguments(int ac, char **av) {
+
+	LOG_MESSAGE("Function call.");
 
 	if (ac < 2)
 		cns_error_handler(NULL, NULL, "Invalid number of arguments");

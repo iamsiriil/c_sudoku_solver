@@ -2,6 +2,8 @@
 
 int	cns_get_n_values(char *b) {
 
+	LOG_MESSAGE("Function call.");
+
 	int ct = 0;
 
 	while (*b) {
@@ -18,6 +20,8 @@ int	cns_get_n_values(char *b) {
 
 char	*cns_clean_buffer(char *b) {
 
+	LOG_MESSAGE("Function call.");
+
 	char *pt = b;
 
 	for (; *b; b++) {
@@ -29,6 +33,8 @@ char	*cns_clean_buffer(char *b) {
 }
 
 size_t	cns_get_size(int ac, char ** av) {
+
+	LOG_MESSAGE("Function call.");
 	
 	size_t sz = 0;
 
