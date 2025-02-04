@@ -1,26 +1,26 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_test_size(int n) {
+int	cns_test_size(int n) {
 
 	int i = 0;
-	for (; i < SS_NUM_OF_SIZES; ++i) {
-		if ((int)SS_SQRT(n) == SS_GRID_SIZES[i])
-			return SS_GRID_SIZES[i];
+	for (; i < NUM_OF_SIZES; ++i) {
+		if ((int)CNS_SQRT(n) == GRID_SIZES[i])
+			return GRID_SIZES[i];
 	}
 	return 0;
 }
 
-bool	ss_test_range(int n, int sz) {
+bool	cns_test_range(int n, int sz) {
 
 	return (n >= 0 && n <= sz) ? true : false;
 }
 
-t_grid	*ss_test_buffer(char *b) {
+t_grid	*cns_test_buffer(char *b) {
 
-	int v = ss_get_n_values(b), gs = 0;
+	int v = cns_get_n_values(b), gs = 0;
 	ss_num *ar = NULL;
 
-	if ((gs = ss_test_size(v)) != 0) {
+	if ((gs = cns_test_size(v)) != 0) {
 		ar = malloc(sizeof(ss_num) * v);
 		if (! ar) {
 			perror("Program failed to allocate memory for array");
@@ -31,7 +31,7 @@ t_grid	*ss_test_buffer(char *b) {
 		int i = 0, n = 0;
 		do {
 			n = atoi(s);
-			if (ss_test_range(n, gs)) {
+			if (cns_test_range(n, gs)) {
 				ar[i++] = n;
 				//if (i >= v) break;
 			}
@@ -49,6 +49,6 @@ t_grid	*ss_test_buffer(char *b) {
 	}
 
 	free(b);
-	return ss_initialize_grid(ar, gs);
+	return cns_initialize_grid(ar, gs);
 }
 

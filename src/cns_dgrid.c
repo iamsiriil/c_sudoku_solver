@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-ss_num	**ss_create_grid(int x, int y, ss_num *a) {
+ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -25,23 +25,23 @@ ss_num	**ss_create_grid(int x, int y, ss_num *a) {
 	return gr;
 }
 
-t_grid	*ss_initialize_grid(ss_num *a, int gs) {
+t_grid	*cns_initialize_grid(ss_num *a, int gs) {
 
 	t_grid *gr = malloc(sizeof(t_grid));
 	if (!gr) {
-		perror("Failed to allocate memory for ss_grid");
+		perror("Failed to allocate memory for cns_grid");
 		free(a);
 		exit(1);	
 	}
 
 	gr->gx = gr->gy = (ss_num)gs;
-	gr->sx = gr->sy = (ss_num)SS_SQRT(gs);
-	gr->g = ss_create_grid(gr->gx, gr->gy, a);
+	gr->sx = gr->sy = (ss_num)CNS_SQRT(gs);
+	gr->g = cns_create_grid(gr->gx, gr->gy, a);
 
 	return gr;
 }
 
-void	ss_print_grid(t_grid *gr) {
+void	cns_print_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -53,7 +53,7 @@ void	ss_print_grid(t_grid *gr) {
 	}
 }
 
-void	ss_free_grid(t_grid *gr) {
+void	cns_free_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 

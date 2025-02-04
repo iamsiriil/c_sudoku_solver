@@ -1,8 +1,8 @@
 #include "../inc/sudoku_solver.h"
 
-char	*ss_argv_to_buffer(int ac, char **av) {
+char	*cns_argv_to_buffer(int ac, char **av) {
 
-	size_t sz = ss_get_size(ac, av);
+	size_t sz = cns_get_size(ac, av);
 	char *buff = malloc(sizeof(char) * sz + 1);
 	if (!buff) {
 		perror("Failed to allocate memory for buffer");
@@ -21,10 +21,10 @@ char	*ss_argv_to_buffer(int ac, char **av) {
 	}
 	buff[k] = '\0';
 
-	return ss_clean_buffer(buff);
+	return cns_clean_buffer(buff);
 }
 
-char	*ss_file_to_buffer(char *p) {
+char	*cns_file_to_buffer(char *p) {
 
 	FILE *f = fopen(p, "r");
 	if (f == NULL) {
@@ -51,10 +51,10 @@ char	*ss_file_to_buffer(char *p) {
 	buff[rd] = '\0';
 
 	fclose(f);
-	return ss_clean_buffer(buff);
+	return cns_clean_buffer(buff);
 }
 
-t_grid	*ss_parse_arguments(int ac, char **av) {
+t_grid	*cns_parse_arguments(int ac, char **av) {
 
 	if (ac < 2) {
 		perror("No arguments were passed");
@@ -62,10 +62,10 @@ t_grid	*ss_parse_arguments(int ac, char **av) {
 	}
 	char *b = NULL;
 	if (ac == 2)
-		b = ss_file_to_buffer(av[1]);
+		b = cns_file_to_buffer(av[1]);
 	else
-		b = ss_argv_to_buffer(ac, av);
+		b = cns_argv_to_buffer(ac, av);
 	
-	return ss_test_buffer(b);
+	return cns_test_buffer(b);
 }
 

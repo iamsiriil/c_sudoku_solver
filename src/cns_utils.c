@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-int	ss_get_n_values(char *b) {
+int	cns_get_n_values(char *b) {
 
 	int ct = 0;
 
@@ -16,7 +16,7 @@ int	ss_get_n_values(char *b) {
 	return ct;
 }
 
-char	*ss_clean_buffer(char *b) {
+char	*cns_clean_buffer(char *b) {
 
 	char *pt = b;
 
@@ -28,7 +28,7 @@ char	*ss_clean_buffer(char *b) {
 	return pt;
 }
 
-size_t	ss_get_size(int ac, char ** av) {
+size_t	cns_get_size(int ac, char ** av) {
 	
 	size_t sz = 0;
 

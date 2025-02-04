@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-bool	ss_check_row(t_grid *gr, int r, ss_num n) {
+bool	cns_check_row(t_grid *gr, int r, ss_num n) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -11,7 +11,7 @@ bool	ss_check_row(t_grid *gr, int r, ss_num n) {
 	return true;
 }
 
-bool	ss_check_col(t_grid *gr, int c, ss_num n) {
+bool	cns_check_col(t_grid *gr, int c, ss_num n) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -22,7 +22,7 @@ bool	ss_check_col(t_grid *gr, int c, ss_num n) {
 	return true;
 }
 
-bool	ss_check_sgrid(t_grid *gr, int r, int c, ss_num n) {
+bool	cns_check_sgrid(t_grid *gr, int r, int c, ss_num n) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -39,15 +39,15 @@ bool	ss_check_sgrid(t_grid *gr, int r, int c, ss_num n) {
 	return true;
 }
 
-bool	ss_check_constraints(t_grid *gr, int r, int c, ss_num n) {
+bool	cns_check_constraints(t_grid *gr, int r, int c, ss_num n) {
 
 	LOG_MESSAGE("Function call.");
 
-	if (!ss_check_row(gr, r, n))
+	if (!cns_check_row(gr, r, n))
 		return false;
-	if (!ss_check_col(gr, c, n))
+	if (!cns_check_col(gr, c, n))
 		return false;
-	if (!ss_check_sgrid(gr, r, c, n))
+	if (!cns_check_sgrid(gr, r, c, n))
 		return false;
 
 	return true;
