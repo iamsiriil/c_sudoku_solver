@@ -39,7 +39,7 @@ bool	ss_check_sgrid(t_grid *gr, int r, int c, ss_num n) {
 	return true;
 }
 
-bool	ss_check_candidate(t_grid *gr, int r, int c, ss_num n) {
+bool	ss_check_constraints(t_grid *gr, int r, int c, ss_num n) {
 
 	LOG_MESSAGE("Function call.");
 

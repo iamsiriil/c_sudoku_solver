@@ -33,7 +33,7 @@ t_grid	*ss_test_buffer(char *b) {
 			n = atoi(s);
 			if (ss_test_range(n, gs)) {
 				ar[i++] = n;
-				if (i >= v) break;
+				//if (i >= v) break;
 			}
 			else {
 				perror("value out of range");

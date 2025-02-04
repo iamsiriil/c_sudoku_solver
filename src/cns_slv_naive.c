@@ -15,7 +15,7 @@ bool	ss_solver_naive(t_grid *gr, int r, int c) {
 
 	for (ss_num n = 1; n <= gr->gx; ++n) {
 
-		if (ss_check_candidate(gr, r, c, n) == true) {
+		if (ss_check_constraints(gr, r, c, n) == true) {
 			gr->g[r][c] = n;
 			if (ss_solver_naive(gr, r, c + 1) == true)
 				return true;
