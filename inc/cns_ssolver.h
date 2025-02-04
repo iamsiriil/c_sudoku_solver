@@ -1,5 +1,5 @@
-#ifndef SUDOKU_SOLVER_H
-# define SUDOKU_SOLVER_H
+#ifndef CNS_SSOLVER_H
+# define CNS_SSOLVER_H
 
 //# define DEBUG
 

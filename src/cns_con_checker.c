@@ -1,4 +1,4 @@
-#include "../inc/sudoku_solver.h"
+#include "../inc/cns_ssolver.h"
 
 bool	cns_check_row(t_grid *gr, int r, ss_num n) {
 

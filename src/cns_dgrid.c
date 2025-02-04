@@ -1,4 +1,4 @@
-#include "../inc/sudoku_solver.h"
+#include "../inc/cns_ssolver.h"
 
 ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 

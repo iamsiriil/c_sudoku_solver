@@ -1,4 +1,4 @@
-#include "../inc/sudoku_solver.h"
+#include "../inc/cns_ssolver.h"
 
 int	cns_test_size(int n) {
 

@@ -1,4 +1,4 @@
-#include "../inc/sudoku_solver.h"
+#include "../inc/cns_ssolver.h"
 
 char	*cns_argv_to_buffer(int ac, char **av) {
 
