@@ -48,6 +48,9 @@ bool		cns_check_col(t_grid *gr, int c, ss_num n);
 bool		cns_check_sgrid(t_grid *gr, int r, int c, ss_num n);
 bool		cns_check_constraints(t_grid *gr, int r, int c, ss_num n);
 
+// Error Handling functions
+void		cns_error_handler(void *p1, void *p2, char *m);
+
 // Util functions
 int		cns_get_n_values(char *b);
 char		*cns_clean_buffer(char *b);

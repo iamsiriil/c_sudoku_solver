@@ -4,10 +4,8 @@ char	*cns_argv_to_buffer(int ac, char **av) {
 
 	size_t sz = cns_get_size(ac, av);
 	char *buff = malloc(sizeof(char) * sz + 1);
-	if (!buff) {
-		perror("Failed to allocate memory for buffer");
-		exit(EXIT_FAILURE);
-	}
+	if (!buff)
+		cns_error_handler(NULL, NULL, "Failed alocate memory");
 	memset(buff, 0, sz + 1);
 
 	int k = 0;
@@ -27,27 +25,21 @@ char	*cns_argv_to_buffer(int ac, char **av) {
 char	*cns_file_to_buffer(char *p) {
 
 	FILE *f = fopen(p, "r");
-	if (f == NULL) {
-		perror("Failed to open file");
-		exit(EXIT_FAILURE);
-	}
+	if (f == NULL)
+		cns_error_handler(NULL, NULL, "Failed to open file");
 
 	fseek(f, 0, SEEK_END);
 	size_t sz = (size_t)ftell(f);
 	rewind(f);
 
 	char *buff = malloc(sizeof(char) * sz + 1);
-	if (!buff) {
-		perror("Failed to allocate mamory for buffer");
-		exit(EXIT_FAILURE);
-	}
+	if (!buff)
+		cns_error_handler(buff, NULL, "Failed alocate memory");
 	memset(buff, 0, sz + 1);
 
 	size_t rd = fread(buff, sizeof(char), sz, f);
-	if (rd < sz) {
-		perror("Failed to read file");
-		exit(EXIT_FAILURE);
-	}
+	if (rd < sz)
+		cns_error_handler(buff, NULL, "Failed to read file");
 	buff[rd] = '\0';
 
 	fclose(f);
@@ -56,10 +48,9 @@ char	*cns_file_to_buffer(char *p) {
 
 t_grid	*cns_parse_arguments(int ac, char **av) {
 
-	if (ac < 2) {
-		perror("No arguments were passed");
-		exit(1);
-	}
+	if (ac < 2)
+		cns_error_handler(NULL, NULL, "Invalid number of arguments");
+
 	char *b = NULL;
 	if (ac == 2)
 		b = cns_file_to_buffer(av[1]);
