@@ -1,6 +1,6 @@
 # Sudoku Solver
 
-$\`n\`$&#x20;
+$`n`$&#x20;
 
 
 
