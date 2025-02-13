@@ -1,6 +1,8 @@
 # Sudoku Solver
 
-`$n$`
+`katex:\sqrt{n}`
+
+
 
 
 
