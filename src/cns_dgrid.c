@@ -1,4 +1,4 @@
-#include "../inc/cns_ssolver.h"
+#include "../inc/sudoku_solver.h"
 
 ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 
@@ -6,7 +6,7 @@ ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 
 	ss_num **gr = malloc(sizeof(ss_num *) * x);
 	if (!gr)
-		cns_error_handler(NULL, NULL, "Failed to allocate memory");
+		cns_error_handler(NULL, NULL, ERR_ALLOC);
 
 	for (int i = 0, k = 0; i < x; ++i) {
 
@@ -32,7 +32,7 @@ t_grid	*cns_initialize_grid(ss_num *a, int gs) {
 
 	t_grid *gr = malloc(sizeof(t_grid));
 	if (!gr) 
-		cns_error_handler(NULL, NULL, "Failed to allocate memory");
+		cns_error_handler(NULL, NULL, ERR_ALLOC);
 
 	gr->gx = gr->gy = (ss_num)gs;
 	gr->sx = gr->sy = (ss_num)CNS_SQRT(gs);

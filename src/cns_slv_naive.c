@@ -1,4 +1,4 @@
-#include "../inc/cns_ssolver.h"
+#include "../inc/sudoku_solver.h"
 
 bool	cns_solver_naive(t_grid *gr, int r, int c) {
 

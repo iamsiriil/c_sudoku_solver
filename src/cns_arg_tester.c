@@ -1,4 +1,4 @@
-#include "../inc/cns_ssolver.h"
+#include "../inc/sudoku_solver.h"
 
 int	cns_test_size(int n) {
 
@@ -29,7 +29,7 @@ t_grid	*cns_test_buffer(char *b) {
 	if ((gs = cns_test_size(v)) != 0) {
 		ar = malloc(sizeof(ss_num) * v);
 		if (! ar)
-			cns_error_handler(b, NULL, "Failed to allocate memory");
+			cns_error_handler(b, NULL, ERR_ALLOC);
 
 		char *s = strtok(b, " ");
 		int i = 0, n = 0;
@@ -40,12 +40,12 @@ t_grid	*cns_test_buffer(char *b) {
 				if (i >= v) break;
 			}
 			else
-				cns_error_handler(ar, b, "Value out of range");
+				cns_error_handler(ar, b, ERR_RANGE);
 		} while ((s = strtok(NULL, " ")) != NULL);
 
 	}
 	else
-		cns_error_handler(b, NULL, "Invalid number of values");
+		cns_error_handler(b, NULL, ERR_NVALS);
 
 	free(b);
 	return cns_initialize_grid(ar, gs);

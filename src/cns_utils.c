@@ -1,4 +1,4 @@
-#include "../inc/cns_ssolver.h"
+#include "../inc/sudoku_solver.h"
 
 int	cns_get_n_values(char *b) {
 
