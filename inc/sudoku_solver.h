@@ -9,10 +9,10 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
-# include <stdlib.h>
 # include <stdbool.h>
 
 # include "logger.h"
+# include "error_handler.h"
 
 # define NUM_OF_SIZES 3				// Number of valid grid sizes
 # define GRID_SIZES (int[]){4, 9, 16}		// Array of valid grid sizes
