@@ -1,6 +1,6 @@
 #include "../inc/sudoku_solver.h"
 
-int	cns_get_n_values(char *b) {
+int	get_n_values(char *b) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -18,7 +18,7 @@ int	cns_get_n_values(char *b) {
 	return ct;
 }
 
-char	*cns_clean_buffer(char *b) {
+char	*clean_buffer(char *b) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -32,7 +32,7 @@ char	*cns_clean_buffer(char *b) {
 	return pt;
 }
 
-size_t	cns_get_size(int ac, char ** av) {
+size_t	get_size(int ac, char ** av) {
 
 	LOG_MESSAGE("Function call.");
 	

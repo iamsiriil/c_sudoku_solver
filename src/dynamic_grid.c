@@ -1,16 +1,16 @@
 #include "../inc/sudoku_solver.h"
 
-ss_num	**cns_create_grid(int x, int y, ss_num *a) {
+ssint	**create_grid(int x, int y, ssint *a) {
 
 	LOG_MESSAGE("Function call.");
 
-	ss_num **gr = malloc(sizeof(ss_num *) * x);
+	ssint **gr = malloc(sizeof(ssint *) * x);
 	if (!gr)
-		cns_error_handler(NULL, NULL, ERR_ALLOC);
+		error_handler(NULL, NULL, ERR_ALLOC);
 
 	for (int i = 0, k = 0; i < x; ++i) {
 
-		gr[i] = malloc(sizeof(ss_num) * y);
+		gr[i] = malloc(sizeof(ssint) * y);
 		if (!gr[i]) {				// error handling
 			for (int j = 0; j < i; ++j)
 				free(gr[j]);
@@ -26,22 +26,22 @@ ss_num	**cns_create_grid(int x, int y, ss_num *a) {
 	return gr;
 }
 
-t_grid	*cns_initialize_grid(ss_num *a, int gs) {
+t_grid	*initialize_grid(ssint *a, int gs) {
 
 	LOG_MESSAGE("Function call.");
 
 	t_grid *gr = malloc(sizeof(t_grid));
 	if (!gr) 
-		cns_error_handler(NULL, NULL, ERR_ALLOC);
+		error_handler(NULL, NULL, ERR_ALLOC);
 
-	gr->gx = gr->gy = (ss_num)gs;
-	gr->sx = gr->sy = (ss_num)CNS_SQRT(gs);
-	gr->g = cns_create_grid(gr->gx, gr->gy, a);
+	gr->gx = gr->gy = (ssint)gs;
+	gr->sx = gr->sy = (ssint)SQRT(gs);
+	gr->g = create_grid(gr->gx, gr->gy, a);
 
 	return gr;
 }
 
-void	cns_print_grid(t_grid *gr) {
+void	print_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 
@@ -53,7 +53,7 @@ void	cns_print_grid(t_grid *gr) {
 	}
 }
 
-void	cns_free_grid(t_grid *gr) {
+void	free_grid(t_grid *gr) {
 
 	LOG_MESSAGE("Function call.");
 
